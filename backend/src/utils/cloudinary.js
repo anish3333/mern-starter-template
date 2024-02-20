@@ -7,7 +7,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-
 const uploadOnCloudinary = async function(localFilePath) {
   try {
     if(!localFilePath) return null;
@@ -16,7 +15,7 @@ const uploadOnCloudinary = async function(localFilePath) {
     const response = await cloudinary.uploader.upload(
       localFilePath,
       {
-        folder: "youtubeApiClone",
+        folder: "assets",
         resource_type: "auto"
       }
     )
