@@ -111,6 +111,7 @@ const loginUser = asyncHandler(async(req,res)=>{
 
   const options = {
       httpOnly:true, 
+      secure:true,
       expires: new Date(Date.now() + 1000 * 60 * 60), 
     };
   
@@ -155,21 +156,20 @@ const logoutUser = asyncHandler(async(req,res)=>{
 })
 
 //contollers for if user is authenticated
-
 const getUserData = asyncHandler(async(req, res)=>{
     const user = req.user;
 
     if(!user){
-        throw new ApiError(409,"user not logged in")
+        throw new ApiError(409,"urlser not logged in")
     }
     return res
     .status(200)
-    .json(new ApiResponse(200,user,"user Data sent Successfully"))
+    .json(new ApiResponse(200,user,"User Data fetched Successfully"))
 
 })
 
 
-//Based on Problem Statement
+//Controllers Based on Problem Statement
 
 export
 {
