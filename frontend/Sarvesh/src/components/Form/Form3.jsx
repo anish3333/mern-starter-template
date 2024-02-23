@@ -10,7 +10,7 @@ export default function Form3() {
     return (
         <div className="m-2">
 
-            <Card color="transparent" shadow={false}>
+            <Card className="flex w-fit mx-auto p-3 border-red-300 border" shadow={false}>
                 <Typography variant="h4" color="blue-gray">
                     Sign Up
                 </Typography>

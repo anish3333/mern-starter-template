@@ -76,7 +76,7 @@ export default function Form2() {
                     </Typography>
                 </CardHeader>
                 <CardBody>
-                    <Tabs value={type} className="overflow-visible">
+                    <Tabs value={type} className="">
                         <TabsHeader className="relative z-0 ">
                             <Tab value="card" onClick={() => setType("card")}>
                                 Pay with Card
@@ -86,7 +86,7 @@ export default function Form2() {
                             </Tab>
                         </TabsHeader>
                         <TabsBody
-                            className="!overflow-x-hidden !overflow-y-visible"
+                            className="!overflow-x-hidden"
                             animate={{
                                 initial: {
                                     x: type === "card" ? 400 : -400,
