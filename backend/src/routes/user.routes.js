@@ -1,9 +1,9 @@
 import { Router } from "express";
 import {uploadOnServer} from '../middlewares/multer.middleware.js'
 import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { getUserData } from "../controllers/user.controllers.js";
 
 const router = Router();
-
 
 router.route("/register").post(
   uploadOnServer.single("avatar"),
@@ -16,7 +16,7 @@ router.route("/login").post(loginUser)
 
 //verified routes
 
-router.route("/verify").get(isUseralreadyLogged)
+router.route("/getuser").get(verifyJWT, getUserData);
 
 
 export default router;

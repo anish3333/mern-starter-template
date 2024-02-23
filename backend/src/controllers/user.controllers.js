@@ -84,9 +84,6 @@ const registerUser = asyncHandler(async (req,res) =>{
 const loginUser = asyncHandler(async(req,res)=>{
 
   const {email,password} = req.body
-//   console.log(req.body)
-//   console.log(email)
-//   console.log(password)
   
   if(!email)  
   {
@@ -157,13 +154,27 @@ const logoutUser = asyncHandler(async(req,res)=>{
   .json(new ApiResponse(200,{},"User logged OUT"))
 })
 
+//contollers for if user is authenticated
+
+const getUserData = asyncHandler(async(req, res)=>{
+    const user = req.user;
+
+    if(!user){
+        throw new ApiError(409,"user not logged in")
+    }
+    return res
+    .status(200)
+    .json(new ApiResponse(200,user,"user Data sent Successfully"))
+
+})
+
+
 //Based on Problem Statement
 
 export
 {
   registerUser,
   loginUser,
-  isUseralreadyLogged,
   logoutUser,
-  refreshAccessToken,
+  getUserData
 }
