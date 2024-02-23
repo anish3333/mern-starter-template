@@ -27,7 +27,7 @@ const userSchema = new Schema(
             type: String, // cloudinary url
             required: true,
         },
-        token: {
+        token: { //refresh token
             type: String
         }
     },
